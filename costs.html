@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Expense Tracker</h2>
+    <form id="expenseForm">
+        <label for="categoryInput">Cost Category:</label>
+        <input type="text" id="categoryInput" required>
+        
+        <label for="sumInput">Sum:</label>
+        <input type="number" id="sumInput" required>
+        
+        <label for="dateInput">Date:</label>
+        <input type="date" id="dateInput" required>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('expenseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Get input values
+            var category = document.getElementById('categoryInput').value;
+            var sum = document.getElementById('sumInput').value;
+            var date = document.getElementById('dateInput').value;
+            
+            // Create an object to store the expense data
+            var expense = {
+                category: category,
+                sum: sum,
+                date: date
+            };
+            
+            // Do something with the expense data (e.g., save to database)
+            console.log(expense);
+            
+            // Reset form
+            document.getElementById('expenseForm').reset();
+        });
+    </script>
+</body>
+</html>
